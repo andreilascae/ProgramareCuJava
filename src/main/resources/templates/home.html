@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - HealthSched</title>
+</head>
+<body>
+<h1>Bine ai venit, <span th:text="${username}">utilizator</span>!</h1>
+
+<ul>
+    <li><a href="/doctori">Lista doctori</a></li>
+    <li><a href="/pacienti">Lista pacienți</a></li>
+    <li><a href="/programari">Programări</a></li>
+    <!-- Adaugă mai multe linkuri după nevoie -->
+</ul>
+
+<p><a href="/logout">Logout</a></p>
+</body>
+</html>

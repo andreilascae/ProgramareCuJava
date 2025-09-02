@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista Doctori</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Lista Doctori</h1>
+
+<a th:href="@{/doctori/add}">Adaugă doctor</a>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th><a th:href="@{/doctori(sortBy='nume')}">Nume</a></th>
+        <th><a th:href="@{/doctori(sortBy='prenume')}">Prenume</a></th>
+        <th><a th:href="@{/doctori(sortBy='email')}">Email</a></th>
+        <th><a th:href="@{/doctori(sortBy='telefon')}">Telefon</a></th>
+        <th><a th:href="@{/doctori(sortBy='specializare')}">Specializare</a></th>
+        <th>Acțiuni</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="doctor : ${doctorPage.content}">
+        <td th:text="${doctor.nume}"></td>
+        <td th:text="${doctor.prenume}"></td>
+        <td th:text="${doctor.email}"></td>
+        <td th:text="${doctor.telefon}"></td>
+        <td th:text="${doctor.specializare}"></td>
+        <td>
+            <a th:href="@{'/doctori/delete/' + ${doctor.id}}">Șterge</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<hr>
+
+<div>
+    <span>Pagină curentă: <strong th:text="${currentPage + 1}"></strong></span><br>
+
+    <a th:if="${currentPage > 0}"
+       th:href="@{/doctori(page=${currentPage - 1}, sortBy=${sortBy})}">Pagina anterioară</a>
+
+    <a th:if="${doctorPage.hasNext()}"
+       th:href="@{/doctori(page=${currentPage + 1}, sortBy=${sortBy})}">Pagina următoare</a>
+</div>
+
+</body>
+</html>

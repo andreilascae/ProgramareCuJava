@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista Programări</title>
+</head>
+<body>
+<h1>Lista Programări</h1>
+
+<a th:href="@{/programari/add}">Adaugă programare</a>
+
+<table border="1">
+    <tr>
+        <th>Data & Ora</th>
+        <th>Motiv</th>
+        <th>Doctor</th>
+        <th>Pacient</th>
+        <th>Acțiuni</th>
+    </tr>
+    <tr th:each="programare : ${programari}">
+        <td th:text="${programare.dataOra}"></td>
+        <td th:text="${programare.motiv}"></td>
+        <td th:text="${programare.doctor.nume} + ' ' + ${programare.doctor.prenume}"></td>
+        <td th:text="${programare.pacient.nume} + ' ' + ${programare.pacient.prenume}"></td>
+        <td>
+            <a th:href="@{'/programari/delete/' + ${programare.id}}">Șterge</a>
+        </td>
+    </tr>
+</table>
+
+<p>Pagină curentă: 1</p>
+
+</body>
+</html>

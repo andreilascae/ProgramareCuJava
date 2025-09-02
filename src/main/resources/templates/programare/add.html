@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adaugă Programare</title>
+</head>
+<body>
+<h1>Adaugă Programare</h1>
+
+<form th:action="@{/programari}" method="post" th:object="${programare}">
+    <label>Data & Ora:</label>
+    <input type="datetime-local" th:field="*{dataOra}" required/><br/>
+
+    <label>Motiv:</label>
+    <input type="text" th:field="*{motiv}" required/><br/>
+
+    <label>Doctor:</label>
+    <select th:field="*{doctor.id}">
+        <option th:each="doctor : ${doctori}" th:value="${doctor.id}"
+                th:text="${doctor.nume + ' ' + doctor.prenume}"></option>
+    </select><br/>
+
+    <label>Pacient:</label>
+    <select th:field="*{pacient.id}">
+        <option th:each="pacient : ${pacienti}" th:value="${pacient.id}"
+                th:text="${pacient.nume + ' ' + pacient.prenume}"></option>
+    </select><br/>
+
+    <button type="submit">Salvează</button>
+    <a th:href="@{/programari}">Renunță</a>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adaugă Doctor</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Adaugă Doctor</h1>
+
+<form th:action="@{/doctori}" th:object="${doctor}" method="post">
+
+    <label for="nume">Nume:</label>
+    <input type="text" id="nume" th:field="*{nume}" />
+    <div th:if="${#fields.hasErrors('nume')}" th:errors="*{nume}"></div>
+
+    <label for="prenume">Prenume:</label>
+    <input type="text" id="prenume" th:field="*{prenume}" />
+    <div th:if="${#fields.hasErrors('prenume')}" th:errors="*{prenume}"></div>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" th:field="*{email}" />
+    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+    <label for="telefon">Telefon:</label>
+    <input type="text" id="telefon" th:field="*{telefon}" />
+    <div th:if="${#fields.hasErrors('telefon')}" th:errors="*{telefon}"></div>
+
+    <label for="specializare">Specializare:</label>
+    <input type="text" id="specializare" th:field="*{specializare}" />
+    <div th:if="${#fields.hasErrors('specializare')}" th:errors="*{specializare}"></div>
+
+    <br/>
+    <button type="submit">Salvează</button>
+    <a th:href="@{/doctori}">Renunță</a>
+</form>
+</body>
+</html>
