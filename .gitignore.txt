@@ -1,0 +1,13 @@
+# Build
+/target/
+
+# IDE
+/.idea/
+/*.iml
+
+# OS / Misc
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
