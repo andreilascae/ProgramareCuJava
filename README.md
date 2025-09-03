@@ -1,7 +1,7 @@
 # HealthSched – Platformă pentru programări medicale
 
 ## Descriere
-Aplicație web realizată în Spring Boot 3, care permite gestionarea clinicilor, medicilor, pacienților, programărilor și plăților.
+Aplicație web realizată în Spring Boot 3, care permite gestionarea clinicilor, medicilor, pacienților, programărilor și plăților.  
 Include interfață web (Thymeleaf) și API REST documentat cu Swagger/OpenAPI.
 
 ---
@@ -53,6 +53,15 @@ Aplicația are configurat un user in-memory:
 
 ---
 
+## Documentație cerințe
+În folderul /docs există fișierul requirements.md unde sunt descrise:
+- 10 cerințe de business (BR1–BR10)
+- 5 funcționalități principale (MVP)
+
+Acest document servește ca punct de referință pentru verificarea acoperirii cerințelor proiectului.
+
+---
+
 ## Testare
 Rulează testele:
 mvn test
@@ -64,15 +73,18 @@ Testele acoperă:
 ---
 
 ## Colecție Postman
-În folderul /docs se poate adăuga fișierul HealthSched.postman_collection.json cu request-uri de test pentru:
+În folderul /docs se găsește fișierul HealthSched.postman_collection.json cu request-uri de test pentru:
 - CRUD Pacienți / Doctori
 - Creare Programare
 - Anulare Programare
 - Creare Plată
 
+Se poate importa direct în Postman pentru a testa rapid funcționalitățile aplicației.
+
 ---
 
 ## Screenshots
-Exemple incluse în /docs/:
+În folderul /screenshots se află capturi de ecran relevante:
 - Swagger UI cu toate endpointurile vizibile.
 - Exemplu de răspuns JSON la crearea unei programări.
+- Exemple pentru cazuri de succes (201/200) și pentru erori (400/409).
