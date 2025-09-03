@@ -1,0 +1,101 @@
+{
+  "info": {
+    "name": "HealthSched API Extended",
+    "_postman_id": "87654321-dcba-hgfe-lkji-0987654321ab",
+    "description": "Colecție extinsă pentru HealthSched (pacienți, doctori, programări, plăți).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Pacienți - GET all",
+      "request": { "method": "GET", "url": "http://localhost:8080/api/pacienti" }
+    },
+    {
+      "name": "Pacienți - POST Ana Ionescu",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nume\":\"Ionescu\",\n  \"prenume\":\"Ana\",\n  \"email\":\"ana.ionescu@example.com\",\n  \"telefon\":\"0712345678\",\n  \"cnp\":\"2990101223344\"\n}"
+        },
+        "url": "http://localhost:8080/api/pacienti"
+      }
+    },
+    {
+      "name": "Pacienți - POST George Marinescu",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nume\":\"Marinescu\",\n  \"prenume\":\"George\",\n  \"email\":\"george.marinescu@example.com\",\n  \"telefon\":\"0722111333\",\n  \"cnp\":\"1980101223344\"\n}"
+        },
+        "url": "http://localhost:8080/api/pacienti"
+      }
+    },
+    {
+      "name": "Doctori - GET all",
+      "request": { "method": "GET", "url": "http://localhost:8080/api/doctors" }
+    },
+    {
+      "name": "Doctori - POST Mihai Popescu",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nume\":\"Popescu\",\n  \"prenume\":\"Mihai\",\n  \"email\":\"mihai.popescu@example.com\",\n  \"telefon\":\"0722334455\",\n  \"specializare\":\"Cardiologie\"\n}"
+        },
+        "url": "http://localhost:8080/api/doctors"
+      }
+    },
+    {
+      "name": "Doctori - POST Ioana Petrescu",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nume\":\"Petrescu\",\n  \"prenume\":\"Ioana\",\n  \"email\":\"ioana.petrescu@example.com\",\n  \"telefon\":\"0733445566\",\n  \"specializare\":\"Dermatologie\"\n}"
+        },
+        "url": "http://localhost:8080/api/doctors"
+      }
+    },
+    {
+      "name": "Programări - POST valid",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"pacientId\":1,\n  \"doctorId\":1,\n  \"dataOra\":\"2025-09-05T10:00:00\",\n  \"motiv\":\"Control anual\"\n}"
+        },
+        "url": "http://localhost:8080/api/programari"
+      }
+    },
+    {
+      "name": "Programări - POST invalid (în trecut)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"pacientId\":1,\n  \"doctorId\":1,\n  \"dataOra\":\"2020-01-01T09:00:00\",\n  \"motiv\":\"Test invalid\"\n}"
+        },
+        "url": "http://localhost:8080/api/programari"
+      }
+    },
+    {
+      "name": "Programări - PATCH anulează id=1",
+      "request": { "method": "PATCH", "url": "http://localhost:8080/api/programari/1/anuleaza" }
+    },
+    {
+      "name": "Plăți - POST pentru programare id=1",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/plati?programareId=1"
+      }
+    }
+  ]
+}
