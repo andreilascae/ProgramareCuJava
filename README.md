@@ -11,11 +11,11 @@ Include interfață web (Thymeleaf) și API REST documentat cu Swagger/OpenAPI.
 ### Cerințe
 - Java 17+
 - Maven 3+
-- MySQL (sau poți rula pe profilul "test" cu H2)
+- MySQL (sau pentru profilul "test" cu H2)
 
 ### Pași
 1) Clonează repo:
-   git clone https://github.com/<user>/HealthSched.git
+   git clone https://github.com/andreilascae/HealthSched.git
    cd HealthSched
 
 2) Rulează aplicația:
@@ -23,7 +23,7 @@ Include interfață web (Thymeleaf) și API REST documentat cu Swagger/OpenAPI.
 
 3) Accesează în browser:
    - UI: http://localhost:8080/
-   - Swagger: http://localhost:8080/swagger-ui/index.html
+   - Swagger: localhost:8080/swagger-ui/index.html
 
 ---
 
@@ -54,16 +54,15 @@ Aplicația are configurat un user in-memory:
 ---
 
 ## Documentație cerințe
-În folderul /docs există fișierul requirements.md unde sunt descrise:
+Există fișierul requirements.md unde sunt descrise:
 - 10 cerințe de business (BR1–BR10)
 - 5 funcționalități principale (MVP)
 
-Acest document servește ca punct de referință pentru verificarea acoperirii cerințelor proiectului.
 
 ---
 
 ## Testare
-Rulează testele:
+Rulare teste:
 mvn test
 
 Testele acoperă:
@@ -73,7 +72,7 @@ Testele acoperă:
 ---
 
 ## Colecție Postman
-În folderul /docs se găsește fișierul HealthSched.postman_collection.json cu request-uri de test pentru:
+Se găsește fișierul HealthSched.postman_collection.json cu request-uri de test pentru:
 - CRUD Pacienți / Doctori
 - Creare Programare
 - Anulare Programare
